@@ -1,2 +1,1 @@
-This is a hackathon botpay integration
-
+This is a hackathon Bitpay integration
