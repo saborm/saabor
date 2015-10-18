@@ -1,0 +1,8 @@
+---
+applications:
+- name: bitpay-module
+  host: bitpay-module
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git#v1.1.0
+  instances: 1
+  memory: 256M
+  domain: cf3.hybris.com
