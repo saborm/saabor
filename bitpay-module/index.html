@@ -14,35 +14,35 @@
     <body>
         <script>
             var demoUIModuleApp = angular.module('demoUIModuleApp', ["builder", "builder_editors"]);
-        
+
             demoUIModuleApp.controller('settingsCtrl', function($scope, $http) {
                 $scope.widgetSettings = Builder.currentWidget.settings;
             });
-        
+
             demoUIModuleApp.controller('authCtrl', function($scope, $http) {
                 $scope.accessToken = Builder.authManager().getAccessToken();
                 $scope.currentAccountId = Builder.currentAccountId;
             });
-        
+
             demoUIModuleApp.controller('linkManagerCtrl', function($scope){
                 $scope.linkMng = Builder.linkManager().currentLocation();
                 $('#isPathExisting').prop('disabled', !Builder.linkManager().path('/Product Overview').exists());
             });
-            
+
             demoUIModuleApp.controller('notificationCtrl', function($scope){
-                
+
                 $scope.processing=function(){
-                    Builder.notificationManager.pushProcessing();    
+                    Builder.notificationManager.pushProcessing();
                     setTimeout(function(){
                     Builder.notificationManager.popProcessing();
                     },3000);
                 }
-                
+
             });
-        
+
             demoUIModuleApp.controller('localizedCtrl', function($scope){
                 $scope.localizedLabel = 'Demo Label';
-        
+
                 $scope.localizedData = {
                     en:"english text",
                     de:"german text",
@@ -55,6 +55,7 @@
                     <div class="page-header">
                         <h1 id="header"></h1>
                     </div>
+                    <!--
                     <div id="token"></div>
                     <div>
                         <h3>NOTIFICATIONS</h3>
@@ -78,13 +79,12 @@
                             <button class="btn btn-default" id="isPathExisting" onclick="Builder.linkManager().path('/Product Overview')">Link does not exist</button>
                         </div>
                     </div>
-                    <br>
+                  -->
                     <div>
-                        <h3>LOCALIZED EDITOR</h3>
+                        <h3>Merchant Setup</h3>
                     </div>
                     <div ng-controller="localizedCtrl">
                         <div class="panel-body" style="width:50%;">
-                            <h4>Multi Line Editor</h4>
                             <localized-text-editor ng-form="someForm" builder-editor-type="tab" data="localizedData" label="localizedLabel"
                             novalidate="novalidate" builder-validate-required-languages="false" builder-locale-type="languages"></localized-text-editor>
                         </div>
